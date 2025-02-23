@@ -77,6 +77,36 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+
+              .container {
+
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Initially slightly below */
+            transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth transition */
+        }
+        .container.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+         .section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+
+    </style>
+
   </head>
   <body>
 
@@ -127,10 +157,12 @@
  </div>
 
 
-<div class="sect">
-  <!-- Start slider  -->
+
+<div class="section">
+
+    <!-- Start slider  -->
   <section id="mu-slider">
-    <div class="mu-slider-area"> 
+    <div class="mu-slider-area">
 
       <!-- Top slider -->
       <div class="mu-top-slider">
@@ -147,7 +179,7 @@
           </div>
           <!-- / Top slider content -->
         </div>
-        <!-- / Top slider single slide -->    
+        <!-- / Top slider single slide -->
 
          <!-- Top slider single slide -->
         <div class="mu-top-slider-single">
@@ -161,7 +193,7 @@
           </div>
           <!-- / Top slider content -->
         </div>
-        <!-- / Top slider single slide --> 
+        <!-- / Top slider single slide -->
 
         <!-- Top slider single slide -->
         <div class="mu-top-slider-single">
@@ -175,13 +207,14 @@
           </div>
           <!-- / Top slider content -->
         </div>
-        <!-- / Top slider single slide -->   
+        <!-- / Top slider single slide -->
 
       </div>
     </div>
   </section>
   <!-- End slider  -->
 </div>
+
 
   <div class="sect">
   <!-- Start About us -->
@@ -199,7 +232,11 @@
             <div class="row">
               <div class="col-md-6">
                <div class="mu-about-us-left">     
-                <img src="Mama_Ramsey_Dishes/assets/img/aboutusmom.jpg" alt="img" style="border-radius: 12px;width: 450px;height: 480px;object-fit: contain">
+                <img src="Mama_Ramsey_Dishes/assets/img/aboutusmom.jpg" alt="img" style="border-radius: 12px;width: 450px;height: 480px;object-fit: contain ;
+            margin: 50px auto;
+            padding: 20px;
+            /*background-color: white;*/
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -1352,8 +1389,28 @@ We are a locally owned and operated establishment that is passionate about suppo
                         <p><span>Saturday</span> 9.00 am to 10 pm</p>
                         <p><span>Sunday</span> 10.00 am to 12 pm</p>
                       </address>
+                 <!--    <div class="mu-contact-widget">  style="display: flex;justify-content: center;align-items: center"-->
+                                   <div class="mu-footer-social">
+            <a href="#"><span class="fa fa-facebook"></span></a>
+            <a href="#"><span class="fa fa-twitter"></span></a>
+<!--            <a href="#"><span class="fa fa-google-plus"></span></a>-->
+<!--            <a href="#"><span class="fa fa-linkedin"></span></a>-->
+            <a href="#"><span class="fa fa-youtube"></span></a>
+                                     <a href="#"><span class="fa fa-map"></span> </a>
+                                     <a href="#"><span class="fa fa-instagram"></span> </a>
+                                     <a href="#"><span class="fa fa-whatsapp"></span> </a>
+<!--                                     <a href="#"><span class="fa fa-user-times"></span> </a>-->
+<!--                                     <a href="#"> <span class="fa fa-battery-half"></span> </a>-->
+          </div>
+
+<!--                      </div>-->
+
+
                     </div>
                   </div>
+
+
+
                 </div>
 
               </div>
@@ -1376,7 +1433,7 @@ We are a locally owned and operated establishment that is passionate about suppo
 </div>
 
 
-  <div class="sect">
+
   <!-- Start Footer -->
   <footer id="mu-footer">
     <div class="container">
@@ -1392,14 +1449,14 @@ We are a locally owned and operated establishment that is passionate about suppo
           </div>
           <div class="mu-footer-copyright">
             <p>&copy; Copyright <a rel="nofollow" href="#">Mama Ramsey's Dishes</a>. All right reserved.</p>
-          </div>         
+          </div>
         </div>
       </div>
       </div>
     </div>
   </footer>
   <!-- End Footer -->
-  </div>
+
   <!-- jQuery library -->
   <script src="Mama_Ramsey_Dishes/assets/js/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -1439,6 +1496,29 @@ We are a locally owned and operated establishment that is passionate about suppo
 <!--        // Initial check in case elements are already visible on load-->
 <!--        checkVisibility();-->
 <!--    </script>-->
+
+
+    <script>
+        const elements = document.querySelectorAll('.container, .section');
+        function checkVisibility() {
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                // Adjust the threshold (e.g., 0.7 for 70% visible)
+                const threshold = 0.7;
+                const triggerPoint = windowHeight * threshold;
+                if (elementTop < triggerPoint) {
+                    element.classList.add('show');
+                } else {
+                    // Optional: remove class to re-animate when scrolling back up
+                    // element.classList.remove('show');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkVisibility);
+        // Initial check in case elements are already visible on load
+        checkVisibility();
+    </script>
 
   </body>
 </html>
